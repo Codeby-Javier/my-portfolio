@@ -5,105 +5,11 @@ function app() {
         apiUrl: 'https://script.google.com/macros/s/AKfycbyPnJAO6iRftkg7kknjWfV6jKezCKpqeiIp94eeGg5sGrNh8wCeMFCPXoz39hx-kGMQ/exec', // PASTE URL DARI GOOGLE APPS SCRIPT DI SINI
         activeModal: null,
 
-        projects: [
-            {
-                id: 1,
-                title: 'E-Commerce Platform',
-                description: 'Platform e-commerce modern dengan fitur cart, checkout, dan payment gateway integration.',
-                image_url: 'https://images.unsplash.com/photo-1661956601031-faf82fcef0f3?w=500&h=300&fit=crop',
-                project_url: 'https://github.com/yourusername/ecommerce',
-                technologies: ['React', 'Node.js', 'MongoDB'],
-                created_at: '2024-01-15',
-                updated_at: '2024-06-20'
-            },
-            {
-                id: 2,
-                title: 'Task Management App',
-                description: 'Aplikasi manajemen tugas dengan fitur drag-drop, deadline tracking, dan team collaboration.',
-                image_url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop',
-                project_url: 'https://github.com/yourusername/taskapp',
-                technologies: ['Vue.js', 'Firebase', 'Tailwind CSS'],
-                created_at: '2024-02-10',
-                updated_at: '2024-07-05'
-            },
-            {
-                id: 3,
-                title: 'Weather Dashboard',
-                description: 'Dashboard cuaca real-time dengan visualisasi data, forecast, dan multiple location support.',
-                image_url: 'https://images.unsplash.com/photo-1563629232-4ce6b2cdc4e9?w=500&h=300&fit=crop',
-                project_url: 'https://github.com/yourusername/weather',
-                technologies: ['JavaScript', 'API REST', 'Chart.js'],
-                created_at: '2024-03-05',
-                updated_at: '2024-08-12'
-            },
-            {
-                id: 4,
-                title: 'Blog Platform',
-                description: 'Platform blogging dengan markdown support, SEO optimization, dan social media integration.',
-                image_url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=500&h=300&fit=crop',
-                project_url: 'https://github.com/yourusername/blog',
-                technologies: ['Next.js', 'Prisma', 'PostgreSQL'],
-                created_at: '2024-04-20',
-                updated_at: '2024-09-03'
-            },
-            {
-                id: 5,
-                title: 'Fitness Tracker',
-                description: 'Aplikasi tracking fitness dengan workout logging, progress visualization, dan social features.',
-                image_url: 'https://images.unsplash.com/photo-1526506118085-da8216eab187?w=500&h=300&fit=crop',
-                project_url: 'https://github.com/yourusername/fitness',
-                technologies: ['Flutter', 'Firebase', 'Dart'],
-                created_at: '2024-05-12',
-                updated_at: '2024-10-08'
-            },
-            {
-                id: 6,
-                title: 'Social Media Analytics',
-                description: 'Tools analytics untuk social media dengan real-time stats, engagement tracking, dan reporting.',
-                image_url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop',
-                project_url: 'https://github.com/yourusername/analytics',
-                technologies: ['Python', 'Django', 'React'],
-                created_at: '2024-06-08',
-                updated_at: '2024-11-10'
-            }
-        ],
+        projects: [],
 
-        stats: [
-            { id: 1, value: '5+', label: 'Projects' },
-            { id: 2, value: '8+', label: 'Technologies' },
-            { id: 3, value: '3+', label: 'Frameworks' }
-        ],
+        stats: [],
 
-        skills: [
-            {
-                id: 1,
-                title: 'Programming Languages',
-                items: [
-                    'C# & .NET Ecosystem (Enterprise application development)',
-                    'Go (Golang) (High-performance systems)',
-                    'Python (Data processing & backend)',
-                    'PHP (Efficient dynamic web development)',
-                    'JavaScript & Node.js (Modern fullstack development)'
-                ]
-            },
-            {
-                id: 2,
-                title: 'Frontend Frameworks & CSS',
-                items: [
-                    'Frameworks: Next.js, React, Alpine JS',
-                    'CSS Frameworks: Tailwind CSS, Bootstrap',
-                    'Responsive Design: Mobile-first approach'
-                ]
-            },
-            {
-                id: 3,
-                title: 'Backend & Platforms',
-                items: [
-                    'Backend: Laravel, CodeIgniter, YII, Django, Flask, Go Gin, Express.js',
-                    'ERP & CMS: ODOO (ERP), WordPress'
-                ]
-            }
-        ],
+        skills: [],
 
         // STATE
         editingId: null,
