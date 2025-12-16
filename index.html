@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ibnu Javier Zaenuri</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/animations.css">
+</head>
+
+<body>
+    <div x-data="app()" class="container">
+        <!-- LAYERED ANIMATED BACKGROUND -->
+        <div class="background-layer birds-layer">
+            <!-- Flying Birds Layer (Top) -->
+            <div class="bird-container">
+                <svg class="bird bird-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,50 Q30,40 40,50 Q30,50 20,50 M40,50 L50,45 L50,55 M50,50 L60,45 L60,55"
+                        stroke="#1a1a1a" stroke-width="2" fill="none" />
+                </svg>
+                <svg class="bird bird-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,50 Q30,40 40,50 Q30,50 20,50 M40,50 L50,45 L50,55 M50,50 L60,45 L60,55"
+                        stroke="#1a1a1a" stroke-width="2" fill="none" />
+                </svg>
+                <svg class="bird bird-3" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,50 Q30,40 40,50 Q30,50 20,50 M40,50 L50,45 L50,55 M50,50 L60,45 L60,55"
+                        stroke="#1a1a1a" stroke-width="2" fill="none" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="background-layer wind-layer">
+            <!-- Wind Particles Layer (Middle) -->
+            <div class="wind-container">
+                <div class="wind-particle p1"></div>
+                <div class="wind-particle p2"></div>
+                <div class="wind-particle p3"></div>
+                <div class="wind-particle p4"></div>
+                <div class="wind-particle p5"></div>
+                <div class="wind-particle p6"></div>
+                <div class="wind-particle p7"></div>
+            </div>
+        </div>
+
+        <div class="background-layer ocean-layer">
+            <!-- Ocean Waves Layer (Bottom) -->
+            <svg class="waves" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#d1f5d8;stop-opacity:0.4" />
+                        <stop offset="100%" style="stop-color:#8bc34a;stop-opacity:0.2" />
+                    </linearGradient>
+                </defs>
+                <path d="M0,40 Q300,20 600,40 T1200,40 L1200,120 L0,120 Z" fill="url(#wave-gradient)" />
+                <path d="M0,50 Q300,30 600,50 T1200,50 L1200,120 L0,120 Z" fill="#a5d6a7" opacity="0.4"
+                    class="wave-1" />
+                <path d="M0,60 Q300,40 600,60 T1200,60 L1200,120 L0,120 Z" fill="#81c784" opacity="0.3"
+                    class="wave-2" />
+                <path d="M0,70 Q300,50 600,70 T1200,70 L1200,120 L0,120 Z" fill="#66bb6a" opacity="0.2"
+                    class="wave-3" />
+            </svg>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <!-- HEADER / HERO SECTION -->
+            <header class="hero">
+                <div class="hero-wrapper">
+                    <!-- Profile Card with Creative Design -->
+                    <div class="profile-card" x-data="{ hoveredTech: null }">
+                        <!-- Decorative Background Shapes -->
+                        <div class="shape shape-1"></div>
+                        <div class="shape shape-2"></div>
+                        <div class="shape shape-3"></div>
+
+                        <!-- Main Profile Container -->
+                        <div class="profile-main">
+                            <!-- Profile Image with Creative Design -->
+                            <div class="profile-image-wrapper">
+                                <div class="image-container">
+                                    <img src="Pose Javier.JPG" alt="Ibnu Javier Zaenuri" class="profile-photo">
+                                    <div class="profile-glow"></div>
+
+                                    <!-- Floating Circles Background -->
+                                    <div class="floating-circle circle-1"></div>
+                                    <div class="floating-circle circle-2"></div>
+                                    <div class="floating-circle circle-3"></div>
+                                </div>
+
+                                <!-- Backend Infrastructure Indicators (Floating) -->
+                                <div class="tech-indicator tech-indicator-1"
+                                    :class="{ active: hoveredTech === 'backend' }" @mouseenter="hoveredTech = 'backend'"
+                                    @mouseleave="hoveredTech = null">
+                                    <span class="tech-icon">⚙️</span>
+                                    <span class="tech-label">Backend</span>
+                                </div>
+                                <div class="tech-indicator tech-indicator-2"
+                                    :class="{ active: hoveredTech === 'database' }"
+                                    @mouseenter="hoveredTech = 'database'" @mouseleave="hoveredTech = null">
+                                    <span class="tech-icon">🗄️</span>
+                                    <span class="tech-label">Database</span>
+                                </div>
+                                <div class="tech-indicator tech-indicator-3" :class="{ active: hoveredTech === 'api' }"
+                                    @mouseenter="hoveredTech = 'api'" @mouseleave="hoveredTech = null">
+                                    <span class="tech-icon">🔌</span>
+                                    <span class="tech-label">API</span>
+                                </div>
+                                <div class="tech-indicator tech-indicator-4"
+                                    :class="{ active: hoveredTech === 'server' }" @mouseenter="hoveredTech = 'server'"
+                                    @mouseleave="hoveredTech = null">
+                                    <span class="tech-icon">🖥️</span>
+                                    <span class="tech-label">Server</span>
+                                </div>
+                                <div class="tech-indicator tech-indicator-5"
+                                    :class="{ active: hoveredTech === 'frontend' }"
+                                    @mouseenter="hoveredTech = 'frontend'" @mouseleave="hoveredTech = null">
+                                    <span class="tech-icon">🎨</span>
+                                    <span class="tech-label">Frontend</span>
+                                </div>
+                                <div class="tech-indicator tech-indicator-6"
+                                    :class="{ active: hoveredTech === 'fullstack' }"
+                                    @mouseenter="hoveredTech = 'fullstack'" @mouseleave="hoveredTech = null">
+                                    <span class="tech-icon">⚡</span>
+                                    <span class="tech-label">Fullstack</span>
+                                </div>
+                                <div class="tech-indicator tech-indicator-7"
+                                    :class="{ active: hoveredTech === 'infrastructure' }"
+                                    @mouseenter="hoveredTech = 'infrastructure'" @mouseleave="hoveredTech = null">
+                                    <span class="tech-icon">🏗️</span>
+                                    <span class="tech-label">Infrastructure</span>
+                                </div>
+                            </div>
+
+                            <!-- Name and Title -->
+                            <div class="profile-info">
+                                <div class="profile-badge">Full Stack Developer</div>
+                                <h1 class="profile-name">Ibnu Javier Zaenuri</h1>
+                                <p class="profile-title">Full Stack Developer | Backend Specialist</p>
+
+                                <!-- Animated Stats -->
+                                <div class="profile-stats">
+                                    <template x-for="(stat, index) in stats" :key="stat.id">
+                                        <div class="stat-group" style="display: flex; align-items: center;">
+                                            <div class="stat-item" @click="editStat(stat.id)"
+                                                style="cursor: pointer; position: relative;">
+                                                <span class="stat-number" x-text="stat.value"></span>
+                                                <span class="stat-label" x-text="stat.label"></span>
+                                                <div class="stat-actions"
+                                                    style="position: absolute; top: -10px; right: -10px; display: none;">
+                                                    <button @click.stop="deleteStat(stat.id)"
+                                                        style="background: red; color: white; border: none; border-radius: 50%; width: 16px; height: 16px; font-size: 10px; cursor: pointer;">&times;</button>
+                                                </div>
+                                            </div>
+                                            <div class="stat-divider" x-show="index < stats.length - 1"></div>
+                                        </div>
+                                    </template>
+                                    <button @click="openStatForm()" class="btn-add-mini"
+                                        style="margin-left: 15px; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; background: var(--matcha-light); border: none; color: var(--matcha-dark); cursor: pointer; font-size: 1.2rem;"
+                                        title="Add Stat">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Links with Enhanced Design -->
+                        <div class="social-links-enhanced">
+                            <a href="https://linkedin.com/in/ibnu-javier" target="_blank"
+                                class="social-link-btn linkedin-btn" title="LinkedIn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.725-2.004 1.426-.103.25-.129.599-.129.949v5.43h-3.554s.047-8.81 0-9.728h3.554v1.375c.425-.655 1.186-1.586 2.882-1.586 2.105 0 3.681 1.376 3.681 4.336v5.603zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.709 0-.961.77-1.71 1.956-1.71 1.187 0 1.915.749 1.948 1.71 0 .951-.761 1.709-1.989 1.709zm-2.002 11.597h3.554V9.724H3.335v10.728zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
+                                </svg>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://www.instagram.com/ibnu.jz/" target="_blank"
+                                class="social-link-btn instagram-btn" title="Instagram"
+                                onclick="window.open('https://www.instagram.com/ibnu.jz/', '_blank'); return false;"
+                                style="z-index: 99999; position: relative; pointer-events: auto;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    style="pointer-events: none;">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="https://github.com/Codeby-Javier/" target="_blank"
+                                class="social-link-btn github-btn" title="GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ABOUT ME SECTION -->
+            <section class="about-section">
+                <div class="about-container">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="about-wrapper">
+                        <!-- Main About Card -->
+                        <div class="about-main-card">
+                            <div class="about-header">
+                                <h3>Hello, I'm Javier</h3>
+                                <p class="about-tagline"><span class="highlight">Full Stack Developer</span> —
+                                    Predominantly Backend-Focused</p>
+                            </div>
+
+                            <div class="about-description">
+                                <p>Architect <strong>high-performance digital solutions</strong> for <strong>complex,
+                                        mission-critical systems</strong>. From corporate ERPs and EdTech platforms to
+                                    sophisticated financial & e-commerce applications, I deliver <strong>robust,
+                                        scalable & maintainable</strong> solutions. Whether enterprise-scale or bespoke
+                                    projects, I engineer the right technology stack to solve real problems.</p>
+                            </div>
+                        </div>
+
+                        <!-- Quick Stats -->
+                        <div class="about-stats-grid">
+                            <div class="stat-box">
+                                <span class="stat-icon">🎯</span>
+                                <h4>Expertise</h4>
+                                <p>Enterprise & Mission-Critical Systems</p>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-icon">💼</span>
+                                <h4>Track Record</h4>
+                                <p>Large-Scale Solutions & Custom Projects</p>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-icon">⚡</span>
+                                <h4>Approach</h4>
+                                <p>Robust, Scalable & Maintainable Code</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SKILLS SECTION -->
+            <section class="skills-section">
+                <h2>Skills Possessed</h2>
+                <div class="skills-grid">
+                    <template x-for="skill in skills" :key="skill.id">
+                        <div class="skill-card" style="position: relative;">
+                            <div class="skill-actions" style="position: absolute; top: 10px; right: 10px;">
+                                <button @click="editSkill(skill.id)"
+                                    style="background: none; border: none; cursor: pointer; color: var(--matcha);"
+                                    title="Edit">✏️</button>
+                                <button @click="deleteSkill(skill.id)"
+                                    style="background: none; border: none; cursor: pointer; color: red;"
+                                    title="Delete">🗑️</button>
+                            </div>
+                            <h3 x-text="skill.title"></h3>
+                            <ul>
+                                <template x-for="item in skill.items" :key="item">
+                                    <li x-text="item"></li>
+                                </template>
+                            </ul>
+                        </div>
+                    </template>
+                </div>
+                <!-- ADD NEW SKILL BUTTON -->
+                <div class="add-project-section" style="margin-top: 20px; margin-bottom: 40px;">
+                    <button @click="openSkillForm()" class="btn btn-add">+ Add New Skill Category</button>
+                </div>
+            </section>
+
+            <!-- PROJECTS SECTION -->
+            <section class="projects-section">
+                <h2>Projects</h2>
+                <div class="projects-container">
+                    <template x-for="project in projects" :key="project.id">
+                        <div class="project-card" :id="`project-${project.id}`">
+                            <div class="project-image">
+                                <img :src="project.image_url" :alt="project.title" loading="lazy">
+                            </div>
+                            <div class="project-content">
+                                <h3 x-text="project.title"></h3>
+                                <p x-text="project.description"></p>
+                                <div class="project-tech">
+                                    <template x-for="tech in project.technologies">
+                                        <span class="tech-badge" x-text="tech"></span>
+                                    </template>
+                                </div>
+                                <div class="project-links">
+                                    <a :href="project.project_url" target="_blank" class="btn btn-primary">Preview</a>
+                                    <button @click="editProject(project.id)" class="btn btn-secondary">Edit</button>
+                                    <button @click="deleteProject(project.id)" class="btn btn-danger">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- ADD NEW PROJECT BUTTON -->
+                <div class="add-project-section">
+                    <button @click="openProjectForm()" class="btn btn-add">+ Add New Project</button>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="footer">
+                <p><a href="https://www.instagram.com/ibnu.jz/" target="_blank">@ibnu.jz</a></p>
+            </footer>
+        </main>
+
+        <!-- CRUD MODAL -->
+        <div class="modal-overlay" x-show="activeModal !== null" @click.self="closeModal()" style="display: none;">
+            <div class="modal-content">
+                <!-- PROJECT FORM -->
+                <template x-if="activeModal === 'project'">
+                    <div>
+                        <h2 x-show="editingId === null">Add New Project</h2>
+                        <h2 x-show="editingId !== null">Edit Project</h2>
+                        <form @submit.prevent="saveProject()">
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" id="title" x-model="projectForm.title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea id="description" x-model="projectForm.description" rows="3"
+                                    required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="image_url">Image URL</label>
+                                <input type="url" id="image_url" x-model="projectForm.image_url" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="project_url">Project URL (Preview Link)</label>
+                                <input type="url" id="project_url" x-model="projectForm.project_url" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="technologies">Technologies (comma-separated)</label>
+                                <input type="text" id="technologies" x-model="projectForm.technologiesStr"
+                                    placeholder="e.g., HTML, CSS, JavaScript">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" @click="closeModal()" class="btn btn-secondary">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </template>
+
+                <!-- STAT FORM -->
+                <template x-if="activeModal === 'stat'">
+                    <div>
+                        <h2 x-show="editingId === null">Add New Stat</h2>
+                        <h2 x-show="editingId !== null">Edit Stat</h2>
+                        <form @submit.prevent="saveStat()">
+                            <div class="form-group">
+                                <label for="stat-value">Value (e.g., 5+)</label>
+                                <input type="text" id="stat-value" x-model="statForm.value" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="stat-label">Label (e.g., Projects)</label>
+                                <input type="text" id="stat-label" x-model="statForm.label" required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" @click="deleteStat(editingId)" class="btn btn-danger"
+                                    x-show="editingId !== null">Delete</button>
+                                <button type="button" @click="closeModal()" class="btn btn-secondary">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </template>
+
+                <!-- SKILL FORM -->
+                <template x-if="activeModal === 'skill'">
+                    <div>
+                        <h2 x-show="editingId === null">Add New Skill Category</h2>
+                        <h2 x-show="editingId !== null">Edit Skill Category</h2>
+                        <form @submit.prevent="saveSkill()">
+                            <div class="form-group">
+                                <label for="skill-title">Category Title</label>
+                                <input type="text" id="skill-title" x-model="skillForm.title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="skill-items">Skill Items (One per line)</label>
+                                <textarea id="skill-items" x-model="skillForm.itemsStr" rows="5"
+                                    placeholder="e.g. PHP&#10;JavaScript&#10;HTML" required></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" @click="closeModal()" class="btn btn-secondary">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </template>
+
+                <button @click="closeModal()" class="modal-close">&times;</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/app.js"></script>
+</body>
+
+</html>

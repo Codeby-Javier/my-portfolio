@@ -1,0 +1,407 @@
+/* PROFILE CARD ANIMATIONS */
+@keyframes pulseGlow {
+    0%, 100% {
+        opacity: 0;
+        filter: blur(15px);
+    }
+    50% {
+        opacity: 0.6;
+        filter: blur(20px);
+    }
+}
+
+@keyframes rotateBorder {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* TECH INDICATORS - BACKEND INFRASTRUCTURE ANIMATIONS */
+.tech-indicator-1 {
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: floatBackendServer 3.5s ease-in-out infinite;
+    z-index: 30;
+}
+
+.tech-indicator-2 {
+    top: 20%;
+    right: -25px;
+    animation: floatBackendDB 3.8s ease-in-out infinite;
+    z-index: 1;
+}
+
+.tech-indicator-3 {
+    bottom: 20%;
+    right: -25px;
+    animation: floatBackendAPI 4.2s ease-in-out infinite;
+    z-index: 1;
+}
+
+.tech-indicator-4 {
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: floatBackendInfra 4s ease-in-out infinite;
+    z-index: 30;
+}
+
+@keyframes floatBackendServer {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0px) rotateZ(-10deg);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-15px) rotateZ(10deg);
+    }
+}
+
+@keyframes floatBackendDB {
+    0%, 100% {
+        transform: translateX(0px) translateY(0px) rotateZ(5deg);
+    }
+    50% {
+        transform: translateX(8px) translateY(-12px) rotateZ(-5deg);
+    }
+}
+
+@keyframes floatBackendAPI {
+    0%, 100% {
+        transform: translateX(0px) translateY(0px) rotateZ(-8deg);
+    }
+    50% {
+        transform: translateX(10px) translateY(8px) rotateZ(8deg);
+    }
+}
+
+@keyframes floatBackendInfra {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0px) rotateZ(8deg);
+    }
+    50% {
+        transform: translateX(-50%) translateY(12px) rotateZ(-8deg);
+    }
+}
+
+@keyframes floatFrontend {
+    0%, 100% {
+        transform: translateX(0px) translateY(0px) rotateZ(-6deg);
+    }
+    50% {
+        transform: translateX(-8px) translateY(-10px) rotateZ(6deg);
+    }
+}
+
+@keyframes floatFullstack {
+    0%, 100% {
+        transform: translateX(0px) translateY(0px) rotateZ(6deg);
+    }
+    50% {
+        transform: translateX(8px) translateY(10px) rotateZ(-6deg);
+    }
+}
+
+/* BACKEND INDICATOR GLOW PULSE */
+.tech-indicator::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 195, 74, 0.4), transparent);
+    z-index: -1;
+    animation: backendGlowPulse 2.5s ease-in-out infinite;
+    opacity: 0;
+}
+
+.tech-indicator:hover::after,
+.tech-indicator.active::after {
+    animation: backendGlowPulse 2s ease-in-out infinite;
+    opacity: 1;
+}
+
+@keyframes backendGlowPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.8;
+    }
+}
+
+/* BACKEND INFRASTRUCTURE CONNECTION LINES (SUBTLE) */
+@keyframes dataFlow {
+    0% {
+        stroke-dashoffset: 1000;
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes techIconPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+/* PROFILE CARD ANIMATIONS */
+.bird-1 {
+    animation: flyBird1 20s linear infinite;
+}
+
+.bird-2 {
+    animation: flyBird2 25s linear infinite 2s;
+}
+
+.bird-3 {
+    animation: flyBird3 22s linear infinite 1s;
+}
+
+@keyframes flyBird1 {
+    0% {
+        transform: translateX(-100px) translateY(0px);
+        opacity: 0;
+    }
+    5% {
+        opacity: 0.6;
+    }
+    95% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateX(calc(100vw + 100px)) translateY(20px);
+        opacity: 0;
+    }
+}
+
+@keyframes flyBird2 {
+    0% {
+        transform: translateX(100vw) translateY(0px) scaleX(-1);
+        opacity: 0;
+    }
+    5% {
+        opacity: 0.6;
+    }
+    95% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateX(-100px) translateY(-30px) scaleX(-1);
+        opacity: 0;
+    }
+}
+
+@keyframes flyBird3 {
+    0% {
+        transform: translateX(-100px) translateY(0px);
+        opacity: 0;
+    }
+    5% {
+        opacity: 0.6;
+    }
+    95% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateX(calc(100vw + 100px)) translateY(-50px);
+        opacity: 0;
+    }
+}
+
+/* WIND PARTICLE ANIMATIONS - MORE VISIBLE */
+.wind-particle {
+    animation: windBlow 5s ease-in-out infinite;
+}
+
+.p1 { animation-delay: 0s; }
+.p2 { animation-delay: 0.7s; }
+.p3 { animation-delay: 1.4s; }
+.p4 { animation-delay: 0.4s; }
+.p5 { animation-delay: 1.8s; }
+.p6 { animation-delay: 0.2s; }
+.p7 { animation-delay: 1.2s; }
+
+@keyframes windBlow {
+    0% {
+        transform: translateX(0) translateY(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateX(250px) translateY(60px);
+        opacity: 0;
+    }
+}
+
+/* OCEAN WAVE ANIMATIONS */
+.wave-1 {
+    animation: waveFlow1 8s ease-in-out infinite;
+}
+
+.wave-2 {
+    animation: waveFlow2 10s ease-in-out infinite;
+}
+
+.wave-3 {
+    animation: waveFlow3 12s ease-in-out infinite;
+}
+
+@keyframes waveFlow1 {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(30px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(-30px);
+    }
+}
+
+@keyframes waveFlow2 {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-25px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(25px);
+    }
+}
+
+@keyframes waveFlow3 {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    33% {
+        transform: translateX(35px);
+    }
+    66% {
+        transform: translateX(-35px);
+    }
+}
+
+/* SMOOTH TRANSITIONS FOR INTERACTIVE ELEMENTS */
+button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a {
+    transition: color 0.3s ease;
+}
+
+img {
+    transition: transform 0.3s ease;
+}
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* SUBTLE GLOW EFFECT FOR MATCHA BUTTONS */
+@keyframes subtleGlow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(139, 195, 74, 0);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(139, 195, 74, 0.3);
+    }
+}
+
+/* STAGGERED FADE-IN FOR PROJECT CARDS */
+.project-card {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
+.project-card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HOVER RIPPLE EFFECT */
+button.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+button.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+}
+
+button.btn:active::before {
+    width: 300px;
+    height: 300px;
+    transition: width 0.3s, height 0.3s;
+}
+
+/* FLOATING ANIMATION FOR SECTION TITLES */
+.projects-section h2,
+.skills-section h2,
+.about-section h2 {
+    position: relative;
+}
+
+.projects-section h2::after,
+.skills-section h2::after,
+.about-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--matcha), transparent);
+    border-radius: 2px;
+}
