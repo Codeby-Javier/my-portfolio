@@ -1,151 +1,64 @@
-# Portfolio CRUD - Ibnu Javier Zaenuri
+# Hi, I'm Ibnu Javier Zaenuri 👋
 
-Portfolio website interaktif dengan kemampuan CRUD untuk mengelola project collection. Frontend dihost di GitHub Pages, data disimpan di Google Sheets via Apps Script.
-
-## 📋 Fitur
-
-✅ **Responsive Design** - Mobile-first, works on all devices
-✅ **CRUD Operations** - Tambah, edit, hapus projects langsung dari web
-✅ **Alpine JS** - Lightweight JavaScript framework
-✅ **Beautiful Animations** - Flying birds, wind effects, ocean waves
-✅ **Matcha Green Theme** - Modern, professional color scheme
-✅ **Google Sheets Integration** - Backend data storage (akan ditambahkan di Phase 2)
-
-## 👨‍💻 About Me
-
-Halo! Saya Ibnu Javier Zaenuri, seorang fullstack developer dengan fokus utama pada pengembangan backend. Saya menikmati membangun fondasi yang kuat di balik layar, memastikan data mengalir dengan lancar dan aplikasi berjalan tanpa hambatan. Di portfolio ini, Anda akan menemukan karya-karya saya yang menggabungkan desain frontend yang menarik dengan arsitektur backend yang solid dan efisien. Saya percaya bahwa pengalaman pengguna yang luar biasa dimulai dari infrastruktur yang andal.
-
-## 🎨 Fitur Desain
-
-- **Background**: Pure white dengan subtle animations
-- **Warna Accent**: Matcha Green (#8bc34a)
-- **Animasi**:
-  - 🦅 Burung terbang lintas layar
-  - 💨 Hembusan angin dengan particle effects
-  - 🌊 Ombak pantai di footer
-- **Responsif**: Desktop, tablet, mobile optimal
-
-## 📁 Struktur Folder
-
-```
-Portfolio/
-├── index.html                 # Main page
-├── assets/
-│   ├── styles.css            # Styling utama
-│   ├── animations.css        # Animation definitions
-│   └── app.js                # Alpine JS logic
-├── images/                   # Project images (nanti)
-├── .gitignore               # Git ignore rules
-└── README.md                # Dokumentasi
-```
-
-## 🚀 Development (Phase 1 - Frontend)
-
-1. **Clone/download repository** ke local machine
-2. **Open `index.html`** di browser untuk preview
-3. **Edit dummy projects** di `assets/app.js` untuk testing
-4. **Test CRUD functionality** - Add, Edit, Delete projects
-
-### Testing CRUD Locally
-
-```javascript
-// Di browser console (F12), coba:
-// Lihat semua projects
-console.log(Alpine.data.app().projects);
-
-// Edit project
-Alpine.data.app().editProject(1);
-
-// Tambah project baru
-Alpine.data.app().saveProject();
-```
-
-## 📊 Data Structure (Projects)
-
-Setiap project memiliki struktur:
-
-```javascript
-{
-    id: 1,
-    title: 'Project Title',
-    description: 'Project description',
-    image_url: 'https://...',
-    project_url: 'https://github.com/...',
-    technologies: ['Tech1', 'Tech2'],
-    created_at: '2024-01-15',
-    updated_at: '2024-06-20'
-}
-```
-
-## 🔗 Social Links
-
-- LinkedIn: https://linkedin.com/in/ibnu-javier
-- GitHub: https://github.com/Codeby-Javier/
-- Instagram: https://www.instagram.com/ibnu.jz/
-
-## 📅 Development Phases
-
-### Phase 1 ✅ Frontend
-- [x] HTML structure
-- [x] CSS styling
-- [x] Alpine JS logic
-- [x] Animations
-
-### Phase 2 ⏳ Google Apps Script
-- [ ] Create API endpoint
-- [ ] GET, POST, PUT, DELETE operations
-- [ ] CORS configuration
-
-### Phase 3 ⏳ Integration
-- [ ] Connect frontend ke Apps Script
-- [ ] Test CRUD dengan live data
-- [ ] Error handling
-
-### Phase 4 ⏳ Deploy
-- [ ] Upload ke GitHub
-- [ ] Enable GitHub Pages
-- [ ] Test production version
-
-## 🛠 Tools & Technologies
-
-- **Frontend**: HTML, CSS, JavaScript
-- **Framework**: Alpine JS 3.x
-- **Backend**: Google Apps Script
-- **Database**: Google Sheets
-- **Hosting**: GitHub Pages
-- **Icons**: SVG, Unicode
-
-## 📝 Kustomisasi
-
-### Ubah Warna (di `styles.css`)
-
-```css
-:root {
-    --matcha: #8bc34a;        /* Primary color */
-    --matcha-dark: #7cb342;   /* Hover color */
-    --matcha-light: #c5e1a5;  /* Light variant */
-}
-```
-
-### Tambah Social Links (di `index.html`)
-
-Edit section `.social-links` untuk tambah link baru.
-
-### Ubah Animasi (di `animations.css`)
-
-Modify `@keyframes` untuk customize flying birds, wind, waves.
-
-## 📞 Contact
-
-- 📧 Email: [your-email]
-- 🔗 GitHub: [your-github]
-- 💼 LinkedIn: https://linkedin.com/in/ibnu-javier
-- 📱 Instagram: @ibnu.jz
-
-## 📄 License
-
-This project is open source. Feel free to fork, modify, and use!
+> **Full Stack Developer | Backend Specialist**
+>
+> *"Architecting high-performance digital solutions for complex, mission-critical systems."*
 
 ---
 
-**Next Steps**: Menunggu Phase 2 untuk Google Apps Script integration. Keep the frontend beautiful! 🎨
+## 👨‍💻 About Me
+
+I am a software engineer focused on building **robust, scalable, and maintainable** infrastructure. With a strong foundation in backend development, I specialize in creating enterprise-grade solutions ranging from corporate ERPs to high-traffic e-commerce platforms.
+
+My approach combines technical precision with a pragmatic mindset—choosing the right stack to solve real-world problems efficiently.
+
+- 🔭 **Currently working on**: High-performance backend systems & Distributed architectures.
+- 🌱 **Learning**: Advanced Cloud Native patterns & Microservices.
+- 💬 **Ask me about**: `.NET`, `Go (Golang)`, `Python`, and System Design.
+
+---
+
+## 🛠️ Tech Stack & Arsenal
+
+| Category | Technologies |
+|----------|--------------|
+| **Backend Core** | ![C#](https://img.shields.io/badge/C%23-239120?style=flat-square&logo=c-sharp&logoColor=white) ![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=flat-square&logo=node.js&logoColor=white) |
+| **Frameworks** | `Laravel` `Django` `Flask` `Gin Gonic` `Express.js` `.NET Core` |
+| **Frontend** | ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) ![Next.js](https://img.shields.io/badge/next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white) ![Alpine.js](https://img.shields.io/badge/Alpine.js-8BC0D0?style=flat-square&logo=alpinedotjs&logoColor=white) |
+| **Infrastructure** | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white) ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=flat-square&logo=redis&logoColor=white) |
+
+---
+
+## 🚀 About This Portfolio
+
+This isn't just a static HTML page. It's a fully dynamic web application powered by **Google Sheets**.
+
+### Key Features:
+*   **Zero-Database Backend**: Uses Google Sheets as a relational database.
+*   **Custom API**: Built with Google Apps Script to handle CRUD (Create, Read, Update, Delete) operations.
+*   **Dynamic Content**: All projects, skills, and stats are fetched in real-time.
+*   **Admin Mode**: I can add, edit, or delete portfolio content directly from the website interface.
+
+---
+
+## 🔗 Connect with Me
+
+Let's discuss your next project or just have a chat about technology.
+
+<div align="left">
+  <a href="https://linkedin.com/in/ibnu-javier" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  <a href="https://github.com/Codeby-Javier" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  </a>
+  <a href="https://www.instagram.com/ibnu.jz/" target="_blank">
+    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" />
+  </a>
+</div>
+
+---
+
+<p align="center">
+  <i>"Code is like humor. When you have to explain it, it’s bad."</i>
+</p>
