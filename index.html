@@ -156,9 +156,9 @@
                                             <div class="stat-divider" x-show="index < stats.length - 1"></div>
                                         </div>
                                     </template>
-                                    <button @click="openStatForm()" class="btn-add-mini"
+                                    <!-- <button @click="openStatForm()" class="btn-add-mini"
                                         style="margin-left: 15px; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; background: var(--matcha-light); border: none; color: var(--matcha-dark); cursor: pointer; font-size: 1.2rem;"
-                                        title="Add Stat">+</button>
+                                        title="Add Stat">+</button> -->
                                 </div>
                             </div>
                         </div>
@@ -249,14 +249,14 @@
                 <div class="skills-grid">
                     <template x-for="skill in skills" :key="skill.id">
                         <div class="skill-card" style="position: relative;">
-                            <div class="skill-actions" style="position: absolute; top: 10px; right: 10px;">
+                            <!-- <div class="skill-actions" style="position: absolute; top: 10px; right: 10px;">
                                 <button @click="editSkill(skill.id)"
                                     style="background: none; border: none; cursor: pointer; color: var(--matcha);"
                                     title="Edit">✏️</button>
                                 <button @click="deleteSkill(skill.id)"
                                     style="background: none; border: none; cursor: pointer; color: red;"
                                     title="Delete">🗑️</button>
-                            </div>
+                            </div> -->
                             <h3 x-text="skill.title"></h3>
                             <ul>
                                 <template x-for="item in skill.items" :key="item">
@@ -267,9 +267,9 @@
                     </template>
                 </div>
                 <!-- ADD NEW SKILL BUTTON -->
-                <div class="add-project-section" style="margin-top: 20px; margin-bottom: 40px;">
+                <!-- <div class="add-project-section" style="margin-top: 20px; margin-bottom: 40px;">
                     <button @click="openSkillForm()" class="btn btn-add">+ Add New Skill Category</button>
-                </div>
+                </div> -->
             </section>
 
             <!-- PROJECTS SECTION -->
@@ -291,8 +291,8 @@
                                 </div>
                                 <div class="project-links">
                                     <a :href="project.project_url" target="_blank" class="btn btn-primary">Preview</a>
-                                    <button @click="editProject(project.id)" class="btn btn-secondary">Edit</button>
-                                    <button @click="deleteProject(project.id)" class="btn btn-danger">Delete</button>
+                                    <!-- <button @click="editProject(project.id)" class="btn btn-secondary">Edit</button>
+                                    <button @click="deleteProject(project.id)" class="btn btn-danger">Delete</button> -->
                                 </div>
                             </div>
                         </div>
@@ -300,9 +300,9 @@
                 </div>
 
                 <!-- ADD NEW PROJECT BUTTON -->
-                <div class="add-project-section">
+                <!-- <div class="add-project-section">
                     <button @click="openProjectForm()" class="btn btn-add">+ Add New Project</button>
-                </div>
+                </div> -->
             </section>
 
             <!-- FOOTER -->
