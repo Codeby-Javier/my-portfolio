@@ -1,17 +1,22 @@
 // KODE GOOGLE APPS SCRIPT (UPDATED)
-// 1. Pastikan Anda punya 3 Sheet (Tab) di bawah: "Projects", "Stats", "Skills"
+// 1. Pastikan Anda punya 4 Sheet (Tab) di bawah: "Projects", "Stats", "Skills", "Stacks"
 // 2. Rename Sheet1 jadi "Projects" (jika belum).
 // 3. Buat Sheet baru tombol (+) beri nama "Stats".
 // 4. Buat Sheet baru tombol (+) beri nama "Skills".
+// 5. Buat Sheet baru tombol (+) beri nama "Stacks".
 //
 // === STRUKTUR HEADER ===
 // Sheet "Projects": id, title, description, image_url, project_url, technologies, created_at, updated_at
 // Sheet "Stats":    id, value, label, created_at, updated_at
 // Sheet "Skills":   id, title, items, created_at, updated_at
+// Sheet "Stacks":   id, project_id, stack_name, color, created_at, updated_at
+//
+// CATATAN: Kolom "color" di Stacks akan otomatis diambil dari warna background cell di kolom stack_name
 
 const SHEET_PROJECTS = "Projects";
 const SHEET_STATS = "Stats";
 const SHEET_SKILLS = "Skills";
+const SHEET_STACKS = "Stacks";
 
 function doGet(e) {
     return handleRequest(e);
@@ -27,14 +32,15 @@ function handleRequest(e) {
 
     try {
         const action = e.parameter.action; // 'read', 'create', 'update', 'delete'
-        const type = e.parameter.type;     // 'projects', 'stats', 'skills'  <-- PARAMETER BARU PENTING
+        const type = e.parameter.type;     // 'projects', 'stats', 'skills', 'stacks'  <-- PARAMETER BARU PENTING
 
-        if (!type) return responseJSON({ status: 'error', message: 'Parameter "type" is required (projects, stats, skills)' });
+        if (!type) return responseJSON({ status: 'error', message: 'Parameter "type" is required (projects, stats, skills, stacks)' });
 
         let sheetName = "";
         if (type === 'projects') sheetName = SHEET_PROJECTS;
         else if (type === 'stats') sheetName = SHEET_STATS;
         else if (type === 'skills') sheetName = SHEET_SKILLS;
+        else if (type === 'stacks') sheetName = SHEET_STACKS;
         else return responseJSON({ status: 'error', message: 'Invalid type' });
 
         const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
@@ -42,7 +48,39 @@ function handleRequest(e) {
 
         // --- READ ---
         if (!action || action === 'read') {
-            const data = getSheetData(sheet);
+            let data;
+            
+            // Untuk stacks, ambil data dengan warna
+            if (type === 'stacks') {
+                data = getStacksDataWithColor(sheet);
+            } else {
+                data = getSheetData(sheet);
+            }
+            
+            // Jika type adalah 'projects', tambahkan stacks untuk setiap project
+            if (type === 'projects') {
+                const stacksSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_STACKS);
+                if (stacksSheet) {
+                    const stacksData = getStacksDataWithColor(stacksSheet);
+                    
+                    // Tambahkan stacks ke setiap project
+                    data = data.map(project => {
+                        const projectStacks = stacksData
+                            .filter(stack => {
+                                // Konversi ke string untuk perbandingan yang lebih aman
+                                const stackProjectId = String(stack.project_id).trim();
+                                const projectId = String(project.id).trim();
+                                return stackProjectId === projectId;
+                            })
+                            .map(stack => ({
+                                name: stack.stack_name,
+                                color: stack.color
+                            }));
+                        return { ...project, stacks: projectStacks };
+                    });
+                }
+            }
+            
             return responseJSON({ status: 'success', data: data });
         }
 
@@ -60,6 +98,8 @@ function handleRequest(e) {
                 rowData = [newId, payload.value, payload.label, timestamp, timestamp];
             } else if (type === 'skills') {
                 rowData = [newId, payload.title, payload.items, timestamp, timestamp]; // items string newline separated
+            } else if (type === 'stacks') {
+                rowData = [newId, payload.project_id, payload.stack_name, payload.color || '', timestamp, timestamp];
             }
 
             sheet.appendRow(rowData);
@@ -88,6 +128,12 @@ function handleRequest(e) {
                 const range = sheet.getRange(rowIndex, 2, 1, 2);
                 range.setValues([[payload.title, payload.items]]);
                 sheet.getRange(rowIndex, 5).setValue(timestamp);
+                
+            } else if (type === 'stacks') {
+                // Col 2-4: Project ID, Stack Name, Color
+                const range = sheet.getRange(rowIndex, 2, 1, 3);
+                range.setValues([[payload.project_id, payload.stack_name, payload.color || '']]);
+                sheet.getRange(rowIndex, 6).setValue(timestamp);
             }
 
             return responseJSON({ status: 'success', message: `${type} updated` });
@@ -116,6 +162,10 @@ function getSheetData(sheet) {
     const data = [];
     for (let i = 1; i < rows.length; i++) {
         const row = rows[i];
+        // Skip baris kosong (cek jika semua kolom kosong)
+        const isEmptyRow = row.every(cell => cell === '' || cell === null || cell === undefined);
+        if (isEmptyRow) continue;
+        
         const obj = {};
         for (let j = 0; j < headers.length; j++) {
             obj[headers[j]] = row[j];
@@ -145,4 +195,40 @@ function generateId(sheet) {
 
 function responseJSON(data) {
     return ContentService.createTextOutput(JSON.stringify(data)).setMimeType(ContentService.MimeType.JSON);
+}
+
+// Fungsi khusus untuk membaca data Stacks dengan warna dari cell
+function getStacksDataWithColor(sheet) {
+    const rows = sheet.getDataRange().getValues();
+    if (rows.length < 2) return [];
+    
+    const headers = rows[0];
+    const data = [];
+    
+    // Cari index kolom stack_name
+    const stackNameIndex = headers.indexOf('stack_name');
+    
+    for (let i = 1; i < rows.length; i++) {
+        const row = rows[i];
+        
+        // Skip baris kosong
+        const isEmptyRow = row.every(cell => cell === '' || cell === null || cell === undefined);
+        if (isEmptyRow) continue;
+        
+        const obj = {};
+        for (let j = 0; j < headers.length; j++) {
+            obj[headers[j]] = row[j];
+        }
+        
+        // Ambil warna background dari cell stack_name
+        if (stackNameIndex !== -1) {
+            const cell = sheet.getRange(i + 1, stackNameIndex + 1);
+            const bgColor = cell.getBackground();
+            obj.color = bgColor;
+        }
+        
+        data.push(obj);
+    }
+    
+    return data;
 }

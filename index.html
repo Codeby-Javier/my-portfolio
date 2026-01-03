@@ -291,6 +291,14 @@
                                 </div>
                                 <div class="project-links">
                                     <a :href="project.project_url" target="_blank" class="btn btn-primary">Preview</a>
+                                    <!-- Stack Badges -->
+                                    <template x-if="project.stacks && project.stacks.length > 0">
+                                        <div class="stack-badges">
+                                            <template x-for="stack in project.stacks" :key="stack.name">
+                                                <span class="stack-badge" :style="`background-color: ${stack.color}; color: ${getTextColor(stack.color)};`" x-text="stack.name"></span>
+                                            </template>
+                                        </div>
+                                    </template>
                                     <!-- <button @click="editProject(project.id)" class="btn btn-secondary">Edit</button>
                                     <button @click="deleteProject(project.id)" class="btn btn-danger">Delete</button> -->
                                 </div>

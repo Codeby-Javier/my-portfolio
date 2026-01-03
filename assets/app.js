@@ -2,7 +2,7 @@
 function app() {
     return {
         // DATA
-        apiUrl: 'https://script.google.com/macros/s/AKfycbyPnJAO6iRftkg7kknjWfV6jKezCKpqeiIp94eeGg5sGrNh8wCeMFCPXoz39hx-kGMQ/exec', // PASTE URL DARI GOOGLE APPS SCRIPT DI SINI
+        apiUrl: 'https://script.google.com/macros/s/AKfycbySp7zg1wLRHgH3Dn203UFzd_LzUmCjYOtntW1iFegIfU_KhR5XzBi12AeXwIqNVIn4/exec', // URL DEPLOYMENT GOOGLE APPS SCRIPT
         activeModal: null,
 
         projects: [],
@@ -210,6 +210,24 @@ function app() {
 
         showSuccessMessage(message = 'Berhasil!') {
             alert(message);
+        },
+
+        // Helper untuk menentukan warna teks berdasarkan background
+        getTextColor(bgColor) {
+            if (!bgColor || bgColor === '#ffffff' || bgColor === '#fff') return '#333';
+            
+            // Convert hex to RGB
+            let color = bgColor.replace('#', '');
+            if (color.length === 3) {
+                color = color.split('').map(c => c + c).join('');
+            }
+            const r = parseInt(color.substr(0, 2), 16);
+            const g = parseInt(color.substr(2, 2), 16);
+            const b = parseInt(color.substr(4, 2), 16);
+            
+            // Calculate brightness
+            const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+            return brightness > 128 ? '#333' : '#fff';
         },
 
         init() {
